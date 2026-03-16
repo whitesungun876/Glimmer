@@ -1,0 +1,1305 @@
+/* 全局样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Source Han Serif SC', serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* ========== 深邃午夜蓝到墨绿色渐变背景 ========== */
+.onboarding-container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1A1C2C 0%, #0D171A 50%, #0A1214 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========== 萤火虫背景动画 ========== */
+@keyframes fireflyFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(30px, -40px) scale(1.2);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-20px, -80px) scale(0.9);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(40px, -50px) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.firefly {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(186, 148, 255, 0.9) 0%, rgba(186, 148, 255, 0.3) 50%, transparent 100%);
+  box-shadow: 0 0 20px rgba(186, 148, 255, 0.8), 0 0 40px rgba(186, 148, 255, 0.4);
+  pointer-events: none;
+  animation: fireflyFloat 8s ease-in-out infinite;
+}
+
+.firefly:nth-child(1) {
+  top: 20%;
+  left: 15%;
+  animation-delay: 0s;
+  animation-duration: 7s;
+}
+
+.firefly:nth-child(2) {
+  top: 60%;
+  left: 80%;
+  animation-delay: 1.5s;
+  animation-duration: 9s;
+}
+
+.firefly:nth-child(3) {
+  top: 40%;
+  left: 30%;
+  animation-delay: 3s;
+  animation-duration: 8s;
+}
+
+.firefly:nth-child(4) {
+  top: 70%;
+  left: 60%;
+  animation-delay: 2s;
+  animation-duration: 10s;
+}
+
+.firefly:nth-child(5) {
+  top: 30%;
+  left: 70%;
+  animation-delay: 4s;
+  animation-duration: 8.5s;
+}
+
+.firefly:nth-child(6) {
+  top: 80%;
+  left: 25%;
+  animation-delay: 1s;
+  animation-duration: 9.5s;
+}
+
+/* ========== 屏幕容器 ========== */
+.screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 32px;
+  position: relative;
+  z-index: 10;
+  animation: screenFadeIn 0.8s ease-out;
+}
+
+@keyframes screenFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== 页面1：纯欢迎页 · 感官觉醒 ========== */
+
+/* 纯净深邃蓝背景 */
+.pure-welcome-screen {
+  background: #0a1628;
+  cursor: pointer;
+}
+
+/* 中心：微弱但有节奏呼吸的微光粒子 */
+@keyframes welcomeBreathing {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+    box-shadow: 0 0 30px rgba(186, 148, 255, 0.4), 0 0 60px rgba(186, 148, 255, 0.2);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0.9;
+    box-shadow: 0 0 50px rgba(186, 148, 255, 0.6), 0 0 100px rgba(186, 148, 255, 0.3);
+  }
+}
+
+.welcome-breathing-particle {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(220, 210, 255, 0.9) 0%, rgba(186, 148, 255, 0.4) 50%, transparent 70%);
+  animation: welcomeBreathing 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 触屏涟漪：从中心粒子散开 */
+@keyframes welcomeRipple {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.8;
+    border-color: rgba(186, 148, 255, 0.6);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+    border-color: rgba(186, 148, 255, 0);
+  }
+}
+
+.welcome-ripple {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  margin-left: -40px;
+  margin-top: -40px;
+  border-radius: 50%;
+  border: 2px solid rgba(186, 148, 255, 0.5);
+  pointer-events: none;
+  z-index: 2;
+  animation: welcomeRipple 1.2s ease-out forwards;
+}
+
+/* 欢迎内容容器 */
+.pure-welcome-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* 大号中央萤火虫 */
+@keyframes centralGlowLarge {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+    box-shadow: 0 0 60px rgba(186, 148, 255, 0.7), 0 0 120px rgba(186, 148, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+    box-shadow: 0 0 100px rgba(186, 148, 255, 1), 0 0 200px rgba(186, 148, 255, 0.6);
+  }
+}
+
+.central-firefly-large {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(186, 148, 255, 1) 0%, rgba(186, 148, 255, 0.5) 60%, transparent 100%);
+  animation: centralGlowLarge 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 主标题 */
+.glimmer-main-title {
+  font-size: 48px;
+  font-weight: 300;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 0;
+  letter-spacing: 4px;
+  line-height: 1.6;
+  text-shadow: 0 0 40px rgba(186, 148, 255, 0.5), 0 0 80px rgba(186, 148, 255, 0.3);
+  font-family: 'Source Han Serif SC', 'Noto Serif SC', serif;
+  animation: titleFadeIn 1.2s ease-out;
+}
+
+@keyframes titleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 描述文字 */
+.glimmer-description {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  line-height: 1.9;
+  max-width: 400px;
+  animation: descFadeIn 1.2s ease-out 0.3s backwards;
+}
+
+@keyframes descFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 开始按钮 */
+.btn-start-journey-onboarding {
+  padding: 18px 48px;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(135deg, #BA94FF 0%, #CCA8FF 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 30px rgba(186, 148, 255, 0.5);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  animation: btnFadeIn 1.2s ease-out 0.6s backwards;
+}
+
+@keyframes btnFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-start-journey-onboarding:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 40px rgba(186, 148, 255, 0.7);
+}
+
+.btn-start-journey-onboarding:active {
+  transform: translateY(-1px);
+}
+
+/* ========== 页面2：意图唤醒 ========== */
+
+/* 中央萤火虫 */
+@keyframes centralGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+    box-shadow: 0 0 40px rgba(186, 148, 255, 0.6), 0 0 80px rgba(186, 148, 255, 0.3);
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+    box-shadow: 0 0 60px rgba(186, 148, 255, 0.9), 0 0 120px rgba(186, 148, 255, 0.5);
+  }
+}
+
+.central-firefly {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(186, 148, 255, 0.9) 0%, rgba(186, 148, 255, 0.3) 60%, transparent 100%);
+  animation: centralGlow 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 意图页面主提问 */
+.intention-main-question {
+  font-size: 24px;
+  font-weight: 300;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+  max-width: 500px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 20px rgba(186, 148, 255, 0.3);
+}
+
+/* 意图选项容器 */
+.intentions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  z-index: 2;
+}
+
+/* 意图卡片 */
+.intention-card {
+  background: rgba(42, 42, 62, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(186, 148, 255, 0.2);
+  border-radius: 20px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.intention-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--glow-color, rgba(186, 148, 255, 0.3));
+  transform: translate(-50%, -50%);
+  transition: all 0.6s ease-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intention-card:hover {
+  transform: translateX(8px);
+  border-color: rgba(186, 148, 255, 0.4);
+  background: rgba(42, 42, 62, 0.5);
+}
+
+.intention-card.selected {
+  transform: scale(1.05);
+  border-color: rgba(186, 148, 255, 0.7);
+}
+
+.intention-card.selected-pulse::before {
+  width: 300%;
+  height: 300%;
+  opacity: 0.6;
+  animation: pulseOut 0.8s ease-out;
+}
+
+@keyframes pulseOut {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.8;
+  }
+  100% {
+    width: 300%;
+    height: 300%;
+    opacity: 0;
+  }
+}
+
+.intention-icon {
+  font-size: 36px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 10px rgba(186, 148, 255, 0.3));
+}
+
+.intention-content {
+  flex: 1;
+  text-align: left;
+}
+
+.intention-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+
+.intention-subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+}
+
+/* ========== 科学背书页（第二页）：大脑训练说明书 ========== */
+
+.science-backing-screen {
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #0a1628 0%, #0d1b2a 50%, #0a1214 100%);
+}
+
+.science-backing-scroll {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.science-backing-inner {
+  padding: 40px 24px 120px;
+  min-height: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.science-backing-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 32px;
+  line-height: 1.45;
+  letter-spacing: 0.5px;
+}
+
+.science-backing-brain-wrap {
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto 40px;
+  color: rgba(255, 255, 255, 0.35);
+  transition: color 0.4s ease;
+}
+
+.science-backing-brain {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.science-backing-brain .brain-outline,
+.science-backing-brain .brain-stem,
+.science-backing-brain .brain-prefrontal,
+.science-backing-brain .brain-amygdala {
+  transition: fill 0.5s ease, transform 0.5s ease, opacity 0.5s ease;
+}
+
+.science-backing-brain .brain-dots .brain-dot {
+  fill: rgba(255, 255, 255, 0.2);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: fill 0.4s ease, transform 0.4s ease;
+}
+
+.science-backing-brain .brain-waves {
+  transition: d 0.6s ease;
+}
+
+.science-backing-brain .brain-needle {
+  transform-origin: 100px 95px;
+  transform: rotate(-28deg);
+  opacity: 0.4;
+  transition: transform 0.5s ease, opacity 0.4s ease, stroke 0.4s ease;
+}
+
+/* Stage 1 (RAS): 脑干脉动 + 金色星点 */
+.science-backing-brain-wrap[data-stage="1"] .brain-stem,
+.science-backing-brain-wrap[data-stage="2"] .brain-stem,
+.science-backing-brain-wrap[data-stage="3"] .brain-stem,
+.science-backing-brain-wrap[data-stage="4"] .brain-stem {
+  animation: brainStemPulse 1.5s ease-in-out infinite;
+}
+
+.science-backing-brain-wrap[data-stage="1"] .brain-dot,
+.science-backing-brain-wrap[data-stage="2"] .brain-dot,
+.science-backing-brain-wrap[data-stage="3"] .brain-dot,
+.science-backing-brain-wrap[data-stage="4"] .brain-dot {
+  fill: #FFD700;
+  transform: scale(1.4);
+}
+
+.science-backing-brain .brain-stem {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes brainStemPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+/* Stage 2 (Neuro): 前额叶金色、杏仁核缩小 */
+.science-backing-brain-wrap[data-stage="2"] .brain-prefrontal,
+.science-backing-brain-wrap[data-stage="3"] .brain-prefrontal,
+.science-backing-brain-wrap[data-stage="4"] .brain-prefrontal {
+  fill: url(#prefrontal-grad);
+}
+
+.science-backing-brain-wrap[data-stage="2"] .brain-amygdala,
+.science-backing-brain-wrap[data-stage="3"] .brain-amygdala,
+.science-backing-brain-wrap[data-stage="4"] .brain-amygdala {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0.6);
+  opacity: 0.5;
+}
+
+/* Stage 3 (Affirmation): 指针对准中心，高亮 */
+.science-backing-brain-wrap[data-stage="3"] .brain-needle,
+.science-backing-brain-wrap[data-stage="4"] .brain-needle {
+  transform: rotate(0deg);
+  stroke: #FFD700;
+  opacity: 1;
+}
+
+/* Stage 4 (Rumination): 波浪变平（由 JS 切换 path d） */
+
+.science-backing-section {
+  margin-bottom: 36px;
+}
+
+.science-backing-section-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+
+.science-backing-section-body {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  line-height: 1.75;
+}
+
+.science-backing-authority {
+  margin-top: 40px;
+  padding: 20px 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.science-backing-authority-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 215, 0, 0.9);
+  margin: 0 0 8px;
+  letter-spacing: 0.5px;
+}
+
+.science-backing-authority-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  line-height: 1.65;
+}
+
+.science-backing-cta-wrap {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.science-backing-continue:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.science-backing-continue:not(:disabled):hover {
+  background: rgba(186, 148, 255, 0.4);
+  box-shadow: 0 0 24px rgba(186, 148, 255, 0.25);
+}
+
+/* ========== 页面2&3：科学背书卡片 ========== */
+
+/* 神经网络画布 */
+.neural-network-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+/* 科学内容容器 */
+.science-content {
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 0 24px;
+}
+
+/* 中央萤火虫（科学页） */
+.firefly-center {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(186, 148, 255, 0.9) 0%, rgba(186, 148, 255, 0.3) 60%, transparent 100%);
+  animation: centralGlow 2s ease-in-out infinite;
+}
+
+/* 科学标题 */
+.science-title {
+  font-size: 28px;
+  font-weight: 300;
+  color: #ffffff;
+  margin-bottom: 32px;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  text-shadow: 0 0 20px rgba(186, 148, 255, 0.3);
+  font-family: 'Source Han Serif SC', 'Noto Serif SC', serif;
+}
+
+/* 科学正文 */
+.science-body {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.9;
+  margin-bottom: 24px;
+}
+
+/* 科学小注释 */
+.science-note {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+}
+
+/* 多段正文（温柔版三页） */
+.science-paragraphs .science-body {
+  margin-bottom: 16px;
+}
+
+.science-paragraphs .science-body:last-child {
+  margin-bottom: 0;
+}
+
+.science-content-scroll {
+  max-height: 70vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Science 页「继续」按钮：点击进入下一页 */
+.science-next-btn {
+  display: block;
+  margin: 28px auto 0;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(186, 148, 255, 0.25);
+  border: 1px solid rgba(186, 148, 255, 0.5);
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.science-next-btn:hover {
+  background: rgba(186, 148, 255, 0.35);
+  box-shadow: 0 0 20px rgba(186, 148, 255, 0.2);
+}
+
+.science-next-btn:active {
+  background: rgba(186, 148, 255, 0.4);
+}
+
+/* ========== 夜晚屏幕样式（第 3 页） ========== */
+.night-screen {
+  background: linear-gradient(
+    to bottom,
+    rgba(80, 60, 120, 0.15) 0%,
+    #1A1C2C 25%,
+    #0D0E1A 100%
+  );
+}
+
+.night-screen .science-content {
+  margin-top: 100px;
+}
+
+.night-visual {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.moon-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(220, 210, 255, 0.5) 0%,
+    rgba(186, 148, 255, 0.2) 40%,
+    transparent 70%
+  );
+  animation: moonPulse 3s ease-in-out infinite;
+}
+
+@keyframes moonPulse {
+  0%, 100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+.night-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(186, 148, 255, 0.9);
+  box-shadow: 0 0 8px rgba(186, 148, 255, 0.6);
+  animation: starTwinkle 2s ease-in-out infinite;
+}
+
+.night-visual .night-star:nth-child(2) { top: 10%; left: 20%; animation-delay: 0.3s; }
+.night-visual .night-star:nth-child(3) { top: 25%; right: 15%; animation-delay: 0.6s; }
+.night-visual .night-star:nth-child(4) { bottom: 30%; left: 25%; animation-delay: 0.9s; }
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ========== 沙漏屏幕样式 ========== */
+.hourglass-screen {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 200, 120, 0.05) 0%,
+    #1A1C2C 30%,
+    #0D171A 100%
+  );
+}
+
+.hourglass-container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 200px;
+  z-index: 1;
+}
+
+.hourglass {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* 星光漩涡 */
+@keyframes vortexSpin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scale(0);
+    opacity: 0;
+  }
+}
+
+.star-vortex {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+}
+
+.vortex-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(186, 148, 255, 0.9);
+  box-shadow: 0 0 10px rgba(186, 148, 255, 0.8);
+  animation: vortexSpin 3s ease-in-out infinite;
+}
+
+.vortex-particle:nth-child(1) { animation-delay: 0s; }
+.vortex-particle:nth-child(2) { animation-delay: 0.6s; }
+.vortex-particle:nth-child(3) { animation-delay: 1.2s; }
+.vortex-particle:nth-child(4) { animation-delay: 1.8s; }
+.vortex-particle:nth-child(5) { animation-delay: 2.4s; }
+
+.hourglass-top,
+.hourglass-bottom {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+}
+
+.hourglass-top {
+  top: 0;
+}
+
+.hourglass-bottom {
+  bottom: 0;
+}
+
+.hourglass-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 发光的沙子 */
+@keyframes sandGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.glowing-sand {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(186, 148, 255, 0.8);
+  box-shadow: 0 0 15px rgba(186, 148, 255, 0.8);
+  animation: sandGlow 2s ease-in-out infinite;
+}
+
+.glowing-sand:nth-child(2) {
+  left: 45%;
+  animation-delay: 0.5s;
+}
+
+.glowing-sand:nth-child(3) {
+  left: 55%;
+  animation-delay: 1s;
+}
+
+.hourglass-content {
+  margin-top: 120px;
+}
+
+/* ========== 页面4：心理契约 + 昵称 ========== */
+
+/* 萤火虫光圈 */
+@keyframes circleGlow {
+  0%, 100% {
+    box-shadow: 0 0 40px rgba(186, 148, 255, 0.4), 
+                inset 0 0 60px rgba(186, 148, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 80px rgba(186, 148, 255, 0.6), 
+                inset 0 0 100px rgba(186, 148, 255, 0.3);
+  }
+}
+
+.firefly-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 1px solid rgba(186, 148, 255, 0.3);
+  animation: circleGlow 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.firefly-circle.focused {
+  animation: circleGlowFocused 1.5s ease-in-out infinite;
+}
+
+@keyframes circleGlowFocused {
+  0%, 100% {
+    box-shadow: 0 0 60px rgba(186, 148, 255, 0.6), 
+                inset 0 0 80px rgba(186, 148, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 100px rgba(186, 148, 255, 0.8), 
+                inset 0 0 120px rgba(186, 148, 255, 0.4);
+  }
+}
+
+/* 光圈内的萤火虫 */
+@keyframes circleFireflyFloat {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(30px, -20px);
+  }
+  66% {
+    transform: translate(-30px, 20px);
+  }
+}
+
+.circle-firefly {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(186, 148, 255, 0.9) 0%, rgba(186, 148, 255, 0.3) 50%, transparent 100%);
+  box-shadow: 0 0 20px rgba(186, 148, 255, 0.8);
+  animation: circleFireflyFloat 6s ease-in-out infinite;
+}
+
+.circle-firefly:nth-child(1) {
+  animation-delay: 0s;
+  animation-duration: 5s;
+}
+
+.circle-firefly:nth-child(2) {
+  animation-delay: 1.5s;
+  animation-duration: 6s;
+}
+
+.circle-firefly:nth-child(3) {
+  animation-delay: 3s;
+  animation-duration: 7s;
+}
+
+/* 内容容器 */
+.name-content {
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* 契约标题 */
+.contract-title {
+  font-size: 28px;
+  font-weight: 300;
+  color: #ffffff;
+  margin-bottom: 24px;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  text-shadow: 0 0 20px rgba(186, 148, 255, 0.3);
+  font-family: 'Source Han Serif SC', 'Noto Serif SC', serif;
+}
+
+/* 契约正文 */
+.contract-body {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+/* 姓名提示 */
+.name-prompt {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 20px;
+}
+
+/* 输入框包装器 */
+.name-input-wrapper {
+  margin-bottom: 32px;
+}
+
+/* 昵称输入框 */
+.name-input {
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 18px;
+  background: rgba(42, 42, 62, 0.4);
+  border: 2px solid rgba(186, 148, 255, 0.3);
+  border-radius: 30px;
+  outline: none;
+  transition: all 0.3s ease;
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(186, 148, 255, 0.3);
+}
+
+.name-input:focus {
+  border-color: rgba(186, 148, 255, 0.7);
+  background: rgba(42, 42, 62, 0.6);
+  box-shadow: 0 0 0 4px rgba(186, 148, 255, 0.2),
+              0 0 30px rgba(186, 148, 255, 0.3);
+}
+
+.name-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 16px;
+}
+
+/* ========== 最后一步：名字 + 目标契约（GoalContractScreen）========== */
+.screen .card {
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px 28px;
+  background: rgba(26, 26, 46, 0.6);
+  border: 1px solid rgba(186, 148, 255, 0.25);
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.screen .card-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 8px;
+  letter-spacing: 0.5px;
+}
+
+.screen .card-description {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+.screen .card .name-input-wrapper {
+  margin-bottom: 24px;
+}
+
+.goal-contract-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 8px;
+  display: block;
+}
+
+.goal-contract-label + .name-input-wrapper {
+  margin-top: 0;
+}
+
+.goal-contract-label + .goals-container {
+  margin-top: 12px;
+}
+
+/* 目标选项列表 */
+.goals-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.goal-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 2px solid rgba(186, 148, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  text-align: left;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  font: inherit;
+}
+
+.goal-option:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(186, 148, 255, 0.35);
+}
+
+.goal-option.selected {
+  border-color: rgba(186, 148, 255, 0.6);
+  background: rgba(186, 148, 255, 0.15);
+}
+
+.goal-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.goal-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.goal-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.goal-subtitle {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+}
+
+.screen .card .btn-primary {
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 16px;
+  border-radius: 24px;
+  margin-top: 8px;
+}
+
+/* 开启练习按钮 */
+.btn-start-journey {
+  width: 100%;
+  padding: 18px 48px;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(135deg, #BA94FF 0%, #CCA8FF 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 30px rgba(186, 148, 255, 0.4);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.btn-start-journey:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 40px rgba(186, 148, 255, 0.6);
+}
+
+.btn-start-journey:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-start-journey:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* 光圈扩散动画覆盖层 */
+@keyframes lightExpansion {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(10);
+    opacity: 0;
+  }
+}
+
+.light-expansion-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(186, 148, 255, 0.8) 0%, rgba(186, 148, 255, 0.3) 50%, transparent 100%);
+  transform: translate(-50%, -50%) scale(0);
+  animation: lightExpansion 1s ease-out forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ========== 响应式设计 ========== */
+@media (max-width: 768px) {
+  .glimmer-title {
+    font-size: 36px;
+  }
+
+  .science-title,
+  .contract-title {
+    font-size: 24px;
+  }
+
+  .intentions-container {
+    max-width: 100%;
+  }
+
+  .intention-card {
+    padding: 16px 20px;
+  }
+
+  .firefly-circle {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .screen {
+    padding: 40px 20px;
+  }
+
+  .glimmer-title {
+    font-size: 32px;
+  }
+
+  .science-title,
+  .contract-title {
+    font-size: 22px;
+  }
+
+  .intention-icon {
+    font-size: 28px;
+  }
+
+  .intention-title {
+    font-size: 16px;
+  }
+
+  .firefly-circle {
+    width: 280px;
+    height: 280px;
+  }
+}

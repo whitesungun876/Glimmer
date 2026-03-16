@@ -1,0 +1,170 @@
+/* GrowthCurveScreen - 交互式成长曲线 */
+
+.growth-curve-screen {
+  background: #0a1628;
+  animation: growthBreathing 8s ease-in-out infinite;
+}
+
+@keyframes growthBreathing {
+  0%, 100% {
+    background-color: #0a1628;
+    box-shadow: inset 0 0 80px rgba(20, 40, 80, 0.15);
+  }
+  50% {
+    background-color: #0d1b2e;
+    box-shadow: inset 0 0 100px rgba(30, 60, 100, 0.2);
+  }
+}
+
+.growth-curve-card {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.growth-curve-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 10px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.growth-curve-desc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0 0 28px;
+  text-align: center;
+}
+
+.growth-chart-wrap {
+  position: relative;
+  width: 100%;
+  padding: 16px 0;
+  margin-bottom: 24px;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+}
+
+.growth-chart-wrap:active {
+  cursor: grabbing;
+}
+
+.growth-chart-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  min-height: 160px;
+}
+
+.growth-path {
+  /* stroke-dashoffset driven by RAF for 2.5s path animation */
+}
+
+.growth-highlight-dot {
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
+}
+
+.growth-vertical-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, rgba(255, 215, 0, 0.6), transparent);
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.growth-tooltip {
+  position: absolute;
+  bottom: 100%;
+  margin-bottom: 12px;
+  width: 240px;
+  padding: 12px 14px;
+  background: rgba(20, 25, 35, 0.95);
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.growth-tooltip-day {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 215, 0, 0.95);
+  margin-bottom: 6px;
+}
+
+.growth-tooltip-text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.growth-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 28px;
+}
+
+.growth-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.growth-stat-label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.growth-stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.growth-stat-stress {
+  color: rgba(255, 180, 120, 0.95);
+}
+
+.growth-stat-wellbeing {
+  color: rgba(124, 255, 161, 0.95);
+}
+
+.growth-next {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(186, 148, 255, 0.3);
+  border: 1px solid rgba(186, 148, 255, 0.5);
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.growth-next:hover {
+  background: rgba(186, 148, 255, 0.4);
+  box-shadow: 0 0 24px rgba(186, 148, 255, 0.25);
+}
+
+.growth-next:active {
+  background: rgba(186, 148, 255, 0.5);
+}

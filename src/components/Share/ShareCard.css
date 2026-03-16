@@ -1,0 +1,144 @@
+/* 拾光分享卡片 */
+.share-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.share-card-inner {
+  position: relative;
+  width: 320px;
+  min-height: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.share-card-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #1a1a2e 0%, #2a2a3e 50%, #1a1a2e 100%);
+  z-index: 0;
+}
+
+.share-card-header {
+  position: relative;
+  z-index: 1;
+  padding: 20px 20px 8px;
+  text-align: center;
+}
+
+.share-card-logo {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+.share-card-subtitle {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 4px;
+}
+
+.share-card-constellation {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+  min-height: 160px;
+}
+
+.share-card-constellation-svg {
+  width: 160px;
+  height: 160px;
+}
+.share-card-constellation-svg svg {
+  width: 100%;
+  height: 100%;
+}
+
+.share-card-constellation-placeholder {
+  display: block;
+}
+
+.share-card-tags {
+  position: relative;
+  z-index: 1;
+  padding: 8px 20px 16px;
+  text-align: center;
+}
+
+.share-card-tags-title {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.share-card-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.share-card-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(186, 148, 255, 0.2);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.85rem;
+}
+
+.share-card-qr {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0 16px;
+}
+
+.share-card-qr svg {
+  border-radius: 8px;
+  background: #fff;
+  padding: 6px;
+}
+
+.share-card-qr-hint {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.share-card-footer {
+  position: relative;
+  z-index: 1;
+  padding: 8px 20px 20px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.share-card-capture-btn {
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #BA94FF 0%, #9b7ad4 100%);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(186, 148, 255, 0.35);
+}
+.share-card-capture-btn:active {
+  transform: scale(0.98);
+}

@@ -1,0 +1,226 @@
+/* FeatureJourneyScreen - 卡片式滑动功能介绍 */
+
+.feature-journey-screen {
+  background: linear-gradient(180deg, #0a1628 0%, #0d1b2e 50%, #0a1214 100%);
+  padding: 0;
+  overflow: hidden;
+}
+
+.feature-journey-inner {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 24px 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.feature-journey-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 8px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.feature-journey-subtitle {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 28px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Carousel - 水平滑动由 JS 接管；touch-action: none 确保 iOS 上能识别左右滑 */
+.feature-carousel-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  touch-action: none;
+  margin-bottom: 20px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.feature-carousel-track {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  left: 50%;
+  width: max-content;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.feature-card {
+  flex-shrink: 0;
+  width: 280px;
+  padding: 24px 20px;
+  background: linear-gradient(180deg, rgba(20, 35, 55, 0.95) 0%, rgba(15, 25, 40, 0.98) 100%);
+  border: 1px solid rgba(186, 148, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.03);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 21px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(186, 148, 255, 0.25), transparent 40%, transparent 60%, rgba(255, 215, 0, 0.15));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.feature-card-active {
+  transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 0 40px rgba(186, 148, 255, 0.15);
+  border-color: rgba(186, 148, 255, 0.35);
+}
+
+.feature-card-active .feature-card-icon-wrap,
+.feature-card-active .feature-card-title,
+.feature-card-active .feature-card-copy {
+  transform: scale(1.05);
+}
+
+.feature-card-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: radial-gradient(ellipse, rgba(186, 148, 255, 0.4) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.feature-card-icon-wrap {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s ease;
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  animation: featureIconBreath 3s ease-in-out infinite;
+}
+
+.feature-card-active .feature-icon {
+  animation-duration: 2.5s;
+}
+
+@keyframes featureIconBreath {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+    opacity: 0.9;
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(255, 215, 0, 0.5));
+    opacity: 1;
+  }
+}
+
+.feature-icon-center-glow {
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+}
+
+.feature-card-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 12px;
+  text-align: center;
+  transition: transform 0.35s ease;
+}
+
+.feature-card-copy {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.65;
+  margin: 0;
+  transition: transform 0.35s ease;
+}
+
+/* Hint + Dots */
+.feature-journey-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.feature-journey-hint-arrow {
+  opacity: 0.8;
+  transition: transform 0.2s ease;
+}
+
+.feature-journey-dots {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.feature-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.feature-dot:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.feature-dot-active {
+  background: rgba(255, 215, 0, 0.9);
+  transform: scale(1.2);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
+
+/* 继续 - 金色 */
+.feature-journey-next {
+  display: block;
+  padding: 14px 40px;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(30, 25, 20, 0.95);
+  background: linear-gradient(135deg, #ffd54f 0%, #ffb74d 50%, #ffa726 100%);
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(255, 180, 80, 0.4);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  font-family: inherit;
+}
+
+.feature-journey-next:hover {
+  box-shadow: 0 6px 28px rgba(255, 180, 80, 0.5);
+  transform: translateY(-2px);
+}
+
+.feature-journey-next:active {
+  transform: translateY(0);
+}

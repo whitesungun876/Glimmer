@@ -1,0 +1,72 @@
+.galaxy-view-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.galaxy-view-card {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  padding: 24px;
+  border-radius: 24px;
+  background: linear-gradient(160deg, #1a1a2e 0%, #2a2a3e 100%);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(186, 148, 255, 0.2);
+}
+
+.galaxy-view-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  line-height: 1;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.galaxy-view-title {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.galaxy-view-subtitle {
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.galaxy-view-resonance {
+  margin: 0 0 16px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(186, 148, 255, 0.15);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.5;
+}
+
+.galaxy-view-svg-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 320px;
+}
+
+.galaxy-view-svg {
+  display: block;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+}

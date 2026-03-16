@@ -1,0 +1,61 @@
+.validation-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 20px 16px 32px;
+  z-index: 999;
+}
+
+.validation-popup-card {
+  width: 100%;
+  max-width: 360px;
+  padding: 20px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, #1a1a2e 0%, #2a2a3e 100%);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(186, 148, 255, 0.2);
+}
+
+.validation-popup-text {
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.validation-popup-text strong {
+  color: var(--accent-color, #BA94FF);
+}
+
+.validation-popup-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.validation-popup-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.validation-popup-btn.confirm {
+  background: linear-gradient(135deg, #BA94FF 0%, #9b7ad4 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(186, 148, 255, 0.35);
+}
+
+.validation-popup-btn.skip {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.validation-popup-btn:active {
+  transform: scale(0.98);
+}

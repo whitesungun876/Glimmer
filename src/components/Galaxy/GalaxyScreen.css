@@ -1,0 +1,199 @@
+.galaxy-screen {
+  width: 100%;
+  min-height: 100%;
+  padding: 16px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.galaxy-screen-invite {
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 24px;
+}
+
+.galaxy-invite-card {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid rgba(186, 148, 255, 0.25);
+  border-radius: 20px;
+  background: rgba(15, 15, 26, 0.6);
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.galaxy-invite-card:active {
+  background: rgba(186, 148, 255, 0.1);
+  border-color: rgba(186, 148, 255, 0.4);
+}
+
+.galaxy-invite-card:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.galaxy-invite-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(186, 148, 255, 0.95);
+}
+
+.galaxy-invite-tap,
+.galaxy-invite-loading {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.galaxy-invite-qr {
+  padding: 8px;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.galaxy-invite-hint {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* 中央散落好友 */
+.galaxy-screen-friends {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  min-height: 280px;
+}
+
+.galaxy-screen-loading,
+.galaxy-screen-empty {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.galaxy-screen-friends-scatter {
+  position: absolute;
+  inset: 0;
+}
+
+.galaxy-screen-friend-icon {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  margin-left: -26px;
+  margin-top: -26px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(186, 148, 255, 0.35) 0%, rgba(124, 255, 161, 0.25) 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.galaxy-screen-friend-icon:hover,
+.galaxy-screen-friend-icon:active {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(186, 148, 255, 0.4);
+}
+
+.galaxy-screen-friend-avatar {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* 迷你星图弹层 */
+.galaxy-mini-map-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.galaxy-mini-map-card {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  padding: 24px;
+  border-radius: 24px;
+  background: linear-gradient(160deg, #1a1a2e 0%, #16213e 100%);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(186, 148, 255, 0.25);
+}
+
+.galaxy-mini-map-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.4rem;
+  line-height: 1;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.galaxy-mini-map-title {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.galaxy-mini-map-loading,
+.galaxy-mini-map-empty {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+.galaxy-mini-map-svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  min-height: 180px;
+}
+
+.galaxy-mini-map-svg svg {
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+}
+
+.galaxy-mini-map-resonance-btn {
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(186, 148, 255, 0.4) 0%, rgba(124, 255, 161, 0.3) 100%);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.galaxy-mini-map-resonance-btn:active {
+  opacity: 0.9;
+}
