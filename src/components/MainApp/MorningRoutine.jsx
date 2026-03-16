@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { saveUserData } from '../../utils/aiHelpers';
 import { updateStreak } from '../../utils/achievementHelpers';
-import { getOrCreateUserId } from '../../utils/inviteHelpers';
 
 const MORNING_QUESTIONS = [
   {
