@@ -34,3 +34,9 @@ yarn-error.log*
 
 # Optional
 .vercel
+
+# iOS build artifacts (ios/.gitignore is also used when adding from root)
+ios/App/Pods
+ios/App/build
+ios/DerivedData
+ios/**/xcuserdata
